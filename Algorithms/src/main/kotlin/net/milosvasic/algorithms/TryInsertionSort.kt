@@ -4,12 +4,12 @@ import net.milosvasic.algorithms.sort.InsertionSort
 
 fun main(args: Array<String>) {
 
-    println("Trying some algorithms.")
+    println("Insertion sort:")
     // Try some random data
     val randoms = getRandomData(10)
-    printData(randoms)
+    val sorted = randoms.clone()
     // Do insert sort
-    val sorted = InsertionSort<Int>().sort(randoms)
+    InsertionSort<Int>().sort(sorted)
     printData(randoms, sorted)
 
 }
