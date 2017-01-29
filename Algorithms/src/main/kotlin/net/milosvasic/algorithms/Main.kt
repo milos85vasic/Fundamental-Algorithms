@@ -4,9 +4,13 @@ import java.util.concurrent.ThreadLocalRandom
 
 
 fun getRandomData(count: Int): Array<Int> {
-    val items = Array(count, { i -> 0 })
+    val items = Array(count, { i -> -1 })
     for (x in 0..count - 1) {
-        items[x] = ThreadLocalRandom.current().nextInt(0, count)
+        var item = ThreadLocalRandom.current().nextInt(0, count)
+        while (items.contains(item)) {
+            item = ThreadLocalRandom.current().nextInt(0, count)
+        }
+        items[x] = item
     }
     return items
 }
