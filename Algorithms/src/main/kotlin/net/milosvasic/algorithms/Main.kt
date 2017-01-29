@@ -38,3 +38,7 @@ fun printData(vararg data: Array<Int>) {
         println(line.toString())
     }
 }
+
+fun getElapsedTime(started: Long): Long {
+    return System.currentTimeMillis() - started
+}
