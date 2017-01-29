@@ -7,9 +7,11 @@ fun main(args: Array<String>) {
     println("Insertion sort:")
     // Try some random data
     val randoms = getRandomData(10)
-    val sorted = randoms.clone()
+    val ascending = randoms.clone()
+    val descending = randoms.clone()
     // Do insert sort
-    InsertionSort<Int>().sort(sorted)
-    printData(randoms, sorted)
+    InsertionSort<Int>().sort(ascending)
+    InsertionSort<Int>().sort(descending, false)
+    printData(randoms, ascending, descending)
 
 }

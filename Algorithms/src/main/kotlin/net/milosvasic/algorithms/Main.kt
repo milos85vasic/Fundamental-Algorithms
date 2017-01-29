@@ -21,8 +21,20 @@ fun printData(data: Array<Int>) {
     }
 }
 
-fun printData(data: Array<Int>, sorted: Array<Int>) {
-    for (x in 0..data.size - 1) {
-        println("${data[x]} ${sorted[x]}")
+fun printData(vararg data: Array<Int>) {
+    var lastSize = data[0].size
+    for (item in data) {
+        if (item.size != lastSize) {
+            throw IllegalArgumentException("All members must be the same size.")
+        } else {
+            lastSize = item.size
+        }
+    }
+    for (x in 0..lastSize - 1) {
+        val line = StringBuilder()
+        for (item in data) {
+            line.append("[${item[x]}] ")
+        }
+        println(line.toString())
     }
 }
