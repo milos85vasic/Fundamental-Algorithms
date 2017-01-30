@@ -2,13 +2,14 @@ package net.milosvasic.algorithms
 
 import java.util.concurrent.ThreadLocalRandom
 
-
-fun getRandomData(count: Int): Array<Int> {
+fun getRandomData(count: Int, min: Int, max: Int, duplicates: Boolean = false): Array<Int> {
     val items = Array(count, { i -> -1 })
     for (x in 0..count - 1) {
-        var item = ThreadLocalRandom.current().nextInt(0, count)
-        while (items.contains(item)) {
-            item = ThreadLocalRandom.current().nextInt(0, count)
+        var item = getRandomNumber(min, max)
+        if (!duplicates) {
+            while (items.contains(item)) {
+                item = getRandomNumber(min, max)
+            }
         }
         items[x] = item
     }
@@ -42,3 +43,5 @@ fun printData(vararg data: Array<Int>) {
 fun getElapsedTime(started: Long): Long {
     return System.currentTimeMillis() - started
 }
+
+fun getRandomNumber(min: Int, max: Int) = ThreadLocalRandom.current().nextInt(min, max)

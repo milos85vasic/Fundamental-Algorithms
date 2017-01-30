@@ -4,7 +4,7 @@ import net.milosvasic.algorithms.sort.InsertionSort
 
 fun main(args: Array<String>) {
     // Prepare data
-    val randoms = getRandomData(1000)
+    val randoms = getRandomData(1000, 0, 1000)
     val ascending = randoms.clone()
     val descending = randoms.clone()
 
@@ -17,7 +17,6 @@ fun main(args: Array<String>) {
     start = System.currentTimeMillis()
     InsertionSort<Int>().sort(descending, false)
     val elapsedDescending = getElapsedTime(start)
-
 
     // Print data
     println("Insert sort:")
