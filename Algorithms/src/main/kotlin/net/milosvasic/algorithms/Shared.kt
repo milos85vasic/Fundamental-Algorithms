@@ -16,6 +16,13 @@ fun getRandomData(count: Int, min: Int, max: Int, duplicates: Boolean = false): 
     return items
 }
 
+fun getOrderedData(count: Int, ascending: Boolean = true): Array<Int> {
+    if (ascending) {
+        return Array(count, { i -> i })
+    }
+    return Array(count, { i -> count - i })
+}
+
 fun printData(data: Array<Int>) {
     for (x in data) {
         println(x)
