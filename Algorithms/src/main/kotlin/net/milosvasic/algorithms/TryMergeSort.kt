@@ -20,8 +20,8 @@ fun main(args: Array<String>) {
 //    val elapsedDescending = getElapsedTime(start)
 
     // Print data
-    println("Selection sort:")
-//    printData(randoms, ascending, descending)
-    println("Selection sort ascending, elapsed time: [ $elapsedAscending ]")
-//    println("Selection sort descending, elapsed time: [ $elapsedDescending ]")
+    println("Merge sort:")
+    printData(randoms, ascending, descending)
+    println("Merge sort ascending, elapsed time: [ $elapsedAscending ]")
+//    println("Merge sort descending, elapsed time: [ $elapsedDescending ]")
 }
