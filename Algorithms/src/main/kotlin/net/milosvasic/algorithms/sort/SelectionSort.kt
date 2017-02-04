@@ -1,6 +1,6 @@
 package net.milosvasic.algorithms.sort
 
-class SelectionSort<T : Comparable<T>> : Sort<T> {
+class SelectionSort<T : Comparable<T>> : SortArray<T> {
 
     override fun sort(elements: Array<T>, ascending: Boolean) {
         for (x in 0..elements.lastIndex) {

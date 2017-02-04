@@ -1,28 +1,58 @@
 package net.milosvasic.algorithms.sort
 
-import java.util.*
 
+class MergeSort<T : Comparable<T>> : SortList<T> {
 
-class MergeSort<T : Comparable<T>> : Sort<T> {
-
-    override fun sort(elements: Array<T>, ascending: Boolean) {
+    override fun sort(elements: MutableList<T>, ascending: Boolean) {
         mergeSort(elements)
     }
 
-    private fun mergeSort(elements: Array<T>) {
+    fun mergeSort(elements: MutableList<T>) {
         val size = elements.size
-        if (size > 1) {
-            val middle = size / 2
-            val first = Arrays.copyOfRange(elements, 0, middle - 1)
-            val second = Arrays.copyOfRange(elements, middle, size - 1)
-            mergeSort(first)
-            mergeSort(second)
-            merge(first, second)
+        if (size < 2)
+            return
+        val mid = size / 2
+        val first = mutableListOf<T>()
+        val second = mutableListOf<T>()
+        for (i in 0..mid - 1) {
+            first.add(elements[i])
+
         }
+        for (i in mid..size - 1) {
+            second.add(elements[i])
+        }
+        mergeSort(first)
+        mergeSort(second)
+        merge(first, second, elements)
     }
 
-    private fun merge(first: Array<T>, second: Array<T>) {
-
+    fun merge(first: MutableList<T>, second: MutableList<T>, elements: MutableList<T>) {
+        val firstSize = first.size
+        val secondSize = second.size
+        var i = 0
+        var j = 0
+        var k = 0
+        while (i < firstSize && j < secondSize) {
+            if (first[i] <= second[j]) {
+                elements[k] = first[i]
+                i++
+                k++
+            } else {
+                elements[k] = second[j]
+                k++
+                j++
+            }
+        }
+        while (i < firstSize) {
+            elements[k] = first[i]
+            k++
+            i++
+        }
+        while (j < firstSize) {
+            elements[k] = second[j]
+            k++
+            j++
+        }
     }
 
 }
