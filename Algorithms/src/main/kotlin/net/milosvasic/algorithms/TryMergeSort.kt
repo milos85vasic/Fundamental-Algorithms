@@ -14,12 +14,12 @@ fun main(args: Array<String>) {
     ascending.addAll(ascendingRaw)
     descending.addAll(descendingRaw)
 
-    // SortArray ascending
+    // Sort ascending
     var start = System.currentTimeMillis()
     MergeSort<Int>().sort(ascending)
     val elapsedAscending = getElapsedTime(start)
 
-    // SortArray descending
+    // Sort descending
     start = System.currentTimeMillis()
     MergeSort<Int>().sort(descending, false)
     val elapsedDescending = getElapsedTime(start)
