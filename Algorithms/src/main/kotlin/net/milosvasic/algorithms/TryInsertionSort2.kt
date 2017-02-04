@@ -5,7 +5,8 @@ import net.milosvasic.algorithms.sort.InsertionSort
 fun main(args: Array<String>) {
     for (x in listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000, 1000 * 1000)) {
         val data = getOrderedData(x, false) // Worst time consuming case for sorting!
-        val ascending = data.clone()
+        val ascending = mutableListOf<Int>()
+        ascending.addAll(data)
 
         // Sort ascending
         val start = System.currentTimeMillis()

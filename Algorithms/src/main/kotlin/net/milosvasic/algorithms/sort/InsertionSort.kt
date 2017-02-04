@@ -1,8 +1,8 @@
 package net.milosvasic.algorithms.sort
 
-class InsertionSort<T : Comparable<T>> : SortArray<T> {
+class InsertionSort<T : Comparable<T>> : Sort<T> {
 
-    override fun sort(elements: Array<T>, ascending: Boolean) {
+    override fun sort(elements: MutableList<T>, ascending: Boolean) {
         for (x in 1..elements.size - 1) {
             val key = elements[x]
             var y = x - 1

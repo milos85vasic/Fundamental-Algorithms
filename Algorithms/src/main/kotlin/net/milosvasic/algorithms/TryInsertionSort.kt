@@ -5,8 +5,10 @@ import net.milosvasic.algorithms.sort.InsertionSort
 fun main(args: Array<String>) {
     // Prepare data
     val randoms = getRandomData(1000, 0, 1000)
-    val ascending = randoms.clone()
-    val descending = randoms.clone()
+    val ascending = mutableListOf<Int>()
+    val descending = mutableListOf<Int>()
+    ascending.addAll(randoms)
+    descending.addAll(randoms)
 
     // Sort ascending
     var start = System.currentTimeMillis()

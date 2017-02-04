@@ -2,8 +2,8 @@ package net.milosvasic.algorithms
 
 import java.util.concurrent.ThreadLocalRandom
 
-fun getRandomData(count: Int, min: Int, max: Int, duplicates: Boolean = false): Array<Int> {
-    val items = Array(count, { i -> -1 })
+fun getRandomData(count: Int, min: Int, max: Int, duplicates: Boolean = false): List<Int> {
+    val items = mutableListOf<Int>()
     for (x in 0..count - 1) {
         var item = getRandomNumber(min, max)
         if (!duplicates) {
@@ -11,14 +11,8 @@ fun getRandomData(count: Int, min: Int, max: Int, duplicates: Boolean = false): 
                 item = getRandomNumber(min, max)
             }
         }
-        items[x] = item
+        items.add(item)
     }
-    return items
-}
-
-fun getListRandomData(count: Int, min: Int, max: Int, duplicates: Boolean = false): MutableList<Int> {
-    val items = mutableListOf<Int>()
-    items.addAll(getRandomData(count, min, max, duplicates))
     return items
 }
 
@@ -29,41 +23,13 @@ fun getOrderedData(count: Int, ascending: Boolean = true): Array<Int> {
     return Array(count, { i -> count - i })
 }
 
-fun getListOrderedData(count: Int, ascending: Boolean = true): MutableList<Int> {
-    val list = mutableListOf<Int>()
-    if (ascending) {
-        list.addAll(Array(count, { i -> i }))
-    } else {
-        list.addAll(Array(count, { i -> count - i }))
-    }
-    return list
-}
-
 fun printData(data: Array<Int>) {
     for (x in data) {
         println(x)
     }
 }
 
-fun printData(vararg data: Array<Int>) {
-    var lastSize = data[0].size
-    for (item in data) {
-        if (item.size != lastSize) {
-            throw IllegalArgumentException("All members must be the same size.")
-        } else {
-            lastSize = item.size
-        }
-    }
-    for (x in 0..lastSize - 1) {
-        val line = StringBuilder()
-        for (item in data) {
-            line.append("[${item[x]}] ")
-        }
-        println(line.toString())
-    }
-}
-
-fun printListData(vararg data: List<Int>) {
+fun printData(vararg data: List<Int>) {
     var lastSize = data[0].size
     for (item in data) {
         if (item.size != lastSize) {

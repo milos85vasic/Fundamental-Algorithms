@@ -1,8 +1,8 @@
 package net.milosvasic.algorithms.sort
 
-class SelectionSort<T : Comparable<T>> : SortArray<T> {
+class SelectionSort<T : Comparable<T>> : Sort<T> {
 
-    override fun sort(elements: Array<T>, ascending: Boolean) {
+    override fun sort(elements: MutableList<T>, ascending: Boolean) {
         for (x in 0..elements.lastIndex) {
             var minmax_index = x
             for (y in x + 1..elements.lastIndex) {

@@ -9,8 +9,8 @@ fun main(args: Array<String>) {
     val descendingRaw = mutableListOf<Int>()
     val ascending = mutableListOf<Int>()
     val descending = mutableListOf<Int>()
-    ascendingRaw.addAll(getListOrderedData(15, false))
-    descendingRaw.addAll(getListOrderedData(15, true))
+    ascendingRaw.addAll(getRandomData(100, 1, 10, true))
+    descendingRaw.addAll(getRandomData(100, 1, 10, true))
     ascending.addAll(ascendingRaw)
     descending.addAll(descendingRaw)
 
@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
 
     // Print data
     println("Merge sort:")
-    printListData(ascendingRaw, ascending, descendingRaw, descending)
+    printData(ascendingRaw, ascending, descendingRaw, descending)
     println("Merge sort ascending, elapsed time: [ $elapsedAscending ]")
     println("Merge sort descending, elapsed time: [ $elapsedDescending ]")
 }

@@ -9,7 +9,8 @@ fun main(args: Array<String>) {
     for (algorithm in algorithms) {
         for (count in tests) {
             val data = getOrderedData(count, false) // Worst time consuming case for sorting!
-            val ascending = data.clone()
+            val ascending = mutableListOf<Int>()
+            ascending.addAll(data)
 
             // Sort ascending
             val start = System.currentTimeMillis()
