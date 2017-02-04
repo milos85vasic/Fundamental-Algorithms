@@ -5,9 +5,12 @@ class MergeSort<T : Comparable<T>> : SortList<T> {
 
     override fun sort(elements: MutableList<T>, ascending: Boolean) {
         mergeSort(elements)
+        if (!ascending) {
+            elements.reverse()
+        }
     }
 
-    fun mergeSort(elements: MutableList<T>) {
+    private fun mergeSort(elements: MutableList<T>) {
         val size = elements.size
         if (size < 2)
             return
@@ -26,7 +29,7 @@ class MergeSort<T : Comparable<T>> : SortList<T> {
         merge(first, second, elements)
     }
 
-    fun merge(first: MutableList<T>, second: MutableList<T>, elements: MutableList<T>) {
+    private fun merge(first: MutableList<T>, second: MutableList<T>, elements: MutableList<T>) {
         val firstSize = first.size
         val secondSize = second.size
         var i = 0

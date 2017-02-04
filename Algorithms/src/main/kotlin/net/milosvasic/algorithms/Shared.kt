@@ -29,6 +29,16 @@ fun getOrderedData(count: Int, ascending: Boolean = true): Array<Int> {
     return Array(count, { i -> count - i })
 }
 
+fun getListOrderedData(count: Int, ascending: Boolean = true): MutableList<Int> {
+    val list = mutableListOf<Int>()
+    if (ascending) {
+        list.addAll(Array(count, { i -> i }))
+    } else {
+        list.addAll(Array(count, { i -> count - i }))
+    }
+    return list
+}
+
 fun printData(data: Array<Int>) {
     for (x in data) {
         println(x)
