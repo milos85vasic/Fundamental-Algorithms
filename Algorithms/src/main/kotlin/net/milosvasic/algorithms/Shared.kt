@@ -2,16 +2,10 @@ package net.milosvasic.algorithms
 
 import java.util.concurrent.ThreadLocalRandom
 
-fun getRandomData(count: Int, min: Int, max: Int, duplicates: Boolean = false): List<Int> {
+fun getRandomData(count: Int, min: Int, max: Int): List<Int> {
     val items = mutableListOf<Int>()
     for (x in 0..count - 1) {
-        var item = getRandomNumber(min, max)
-        if (!duplicates) {
-            while (items.contains(item)) {
-                item = getRandomNumber(min, max)
-            }
-        }
-        items.add(item)
+        items.add(getRandomNumber(min, max))
     }
     return items
 }

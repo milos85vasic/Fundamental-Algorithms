@@ -5,7 +5,7 @@ import net.milosvasic.algorithms.search.LinearSearch
 fun main(args: Array<String>) {
     // Prepare data
     val totalElements = 100 * 1000
-    val randoms = getRandomData(totalElements, 0, 1000, true)
+    val randoms = getRandomData(totalElements, 0, 1000)
     val random = getRandomNumber(0, 1000)
 
     // Linear search
