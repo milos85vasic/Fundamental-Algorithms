@@ -24,18 +24,18 @@ fun printData(data: Array<Int>) {
 }
 
 fun printData(vararg data: List<Int>) {
-    var lastSize = data[0].size
+    var lastSize = -1
     for (item in data) {
-        if (item.size != lastSize) {
-            throw IllegalArgumentException("All members must be the same size.")
-        } else {
+        if (item.size > lastSize) {
             lastSize = item.size
         }
     }
     for (x in 0..lastSize - 1) {
         val line = StringBuilder()
         for (item in data) {
-            line.append("[${item[x]}] ")
+            if (x < item.size) {
+                line.append("[${item[x]}] ")
+            }
         }
         println(line.toString())
     }
