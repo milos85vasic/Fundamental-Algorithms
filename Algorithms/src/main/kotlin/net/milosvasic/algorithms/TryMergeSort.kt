@@ -9,8 +9,8 @@ fun main(args: Array<String>) {
     val descendingRaw = mutableListOf<Int>()
     val ascending = mutableListOf<Int>()
     val descending = mutableListOf<Int>()
-    ascendingRaw.addAll(getRandomData(100, 1, 10, true))
-    descendingRaw.addAll(getRandomData(100, 1, 10, true))
+    ascendingRaw.addAll(getOrderedData(1000, false))
+    descendingRaw.addAll(getOrderedData(1000, true))
     ascending.addAll(ascendingRaw)
     descending.addAll(descendingRaw)
 

@@ -18,7 +18,7 @@ fun getRandomData(count: Int, min: Int, max: Int, duplicates: Boolean = false): 
 
 fun getOrderedData(count: Int, ascending: Boolean = true): Array<Int> {
     if (ascending) {
-        return Array(count, { i -> i })
+        return Array(count, { i -> i + 1 })
     }
     return Array(count, { i -> count - i })
 }
