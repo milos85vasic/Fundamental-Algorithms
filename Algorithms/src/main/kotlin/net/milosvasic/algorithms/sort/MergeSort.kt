@@ -4,13 +4,10 @@ package net.milosvasic.algorithms.sort
 class MergeSort<T : Comparable<T>> : Sort<T> {
 
     override fun sort(elements: MutableList<T>, ascending: Boolean) {
-        mergeSort(elements)
-        if (!ascending) { // TODO: Implement native way!
-            elements.reverse()
-        }
+        mergeSort(elements, ascending)
     }
 
-    private fun mergeSort(elements: MutableList<T>) {
+    private fun mergeSort(elements: MutableList<T>, ascending: Boolean) {
         val size = elements.size
         if (size < 2)
             return
@@ -24,26 +21,38 @@ class MergeSort<T : Comparable<T>> : Sort<T> {
         for (i in mid..size - 1) {
             second.add(elements[i])
         }
-        mergeSort(first)
-        mergeSort(second)
-        merge(first, second, elements)
+        mergeSort(first, ascending)
+        mergeSort(second, ascending)
+        merge(first, second, elements, ascending)
     }
 
-    fun merge(first: MutableList<T>, second: MutableList<T>, elements: MutableList<T>) {
+    fun merge(first: MutableList<T>, second: MutableList<T>, elements: MutableList<T>, ascending: Boolean) {
         val firstSize = first.size
         val secondSize = second.size
         var i = 0
         var j = 0
         var k = 0
         while (i < firstSize && j < secondSize) {
-            if (first[i] <= second[j]) {
-                elements[k] = first[i]
-                i++
-                k++
+            if (ascending) {
+                if (first[i] <= second[j]) {
+                    elements[k] = first[i]
+                    i++
+                    k++
+                } else {
+                    elements[k] = second[j]
+                    k++
+                    j++
+                }
             } else {
-                elements[k] = second[j]
-                k++
-                j++
+                if (first[i] >= second[j]) {
+                    elements[k] = first[i]
+                    i++
+                    k++
+                } else {
+                    elements[k] = second[j]
+                    k++
+                    j++
+                }
             }
         }
         while (i < firstSize) {
