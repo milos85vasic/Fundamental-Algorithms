@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
     val algorithms = LinkedHashMap<Sort<Int>, List<Int>>()
     algorithms.put(InsertionSort<Int>(), smallData)
     algorithms.put(SelectionSort<Int>(), smallData)
-    algorithms.put(MergeSort<Int>(), bigData)
+    algorithms.put(MergeSort<Int>(), smallData)
 
     // Test algorithms
     for ((algorithm, tests) in algorithms) {
