@@ -3,13 +3,33 @@ package net.milosvasic.algorithms
 import net.milosvasic.algorithms.sort.InsertionSort
 import net.milosvasic.algorithms.sort.MergeSort
 import net.milosvasic.algorithms.sort.SelectionSort
+import net.milosvasic.algorithms.sort.Sort
+import java.util.*
 
 fun main(args: Array<String>) {
-    val tests = listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000)
-    val algorithms = listOf(InsertionSort<Int>(), SelectionSort<Int>(), MergeSort<Int>())
-    for (algorithm in algorithms) {
+    // Define amounts of data to be sorted by algorithm
+    val smallData = listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000)
+    val bigData = listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000, 1000 * 1000, 10 * 1000 * 1000, 100 * 1000 * 1000, 1000 * 1000 * 1000)
+
+    // Test data cache
+    val cache = HashMap<Int, List<Int>>()
+
+    // Define algorithms to test and data amounts to use in testing
+    val algorithms = LinkedHashMap<Sort<Int>, List<Int>>()
+    algorithms.put(InsertionSort<Int>(), smallData)
+    algorithms.put(SelectionSort<Int>(), smallData)
+    algorithms.put(MergeSort<Int>(), bigData)
+
+    // Test algorithms
+    for ((algorithm, tests) in algorithms) {
         for (count in tests) {
-            val data = getOrderedData(count, false) // Worst time consuming case for sorting!
+            // Obtain test data
+            var data: List<Int>? = cache[count]
+            if (data == null) {
+                data = getOrderedData(count, false)
+                cache.put(count, data) // Sort descending data to ascending
+            }
+
             val ascending = mutableListOf<Int>()
             ascending.addAll(data)
 
@@ -18,10 +38,12 @@ fun main(args: Array<String>) {
             SelectionSort<Int>().sort(ascending)
             val elapsedAscending = getElapsedTime(start)
 
-            // Print data
-            // printData(data, ascending)
+            // Verify sorting
+            verify(ascending)
+
+            // Print results
             val name = algorithm.javaClass.simpleName
-            println("[ $name ] [ items count: $count ][ elapsed time: $elapsedAscending ]")
+            println("[ $name ] [ items count: ${ascending.size} ][ elapsed time: $elapsedAscending ]")
         }
         println("- - - - - - - - - - - - - - - ")
     }

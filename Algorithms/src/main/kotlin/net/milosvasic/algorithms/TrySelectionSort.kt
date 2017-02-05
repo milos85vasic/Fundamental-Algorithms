@@ -20,6 +20,10 @@ fun main(args: Array<String>) {
     SelectionSort<Int>().sort(descending, false)
     val elapsedDescending = getElapsedTime(start)
 
+    // Verify sorting
+    verify(ascending)
+    verify(descending, false)
+
     // Print data
     println("Selection sort:")
     printData(randoms, ascending, descending)

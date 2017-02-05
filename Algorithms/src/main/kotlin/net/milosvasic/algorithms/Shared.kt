@@ -10,11 +10,14 @@ fun getRandomData(count: Int, min: Int, max: Int): List<Int> {
     return items
 }
 
-fun getOrderedData(count: Int, ascending: Boolean = true): Array<Int> {
+fun getOrderedData(count: Int, ascending: Boolean = true): List<Int> {
+    val items = mutableListOf<Int>()
     if (ascending) {
-        return Array(count, { i -> i + 1 })
+        items.addAll(Array(count, { i -> i + 1 }))
+    } else {
+        items.addAll(Array(count, { i -> count - i }))
     }
-    return Array(count, { i -> count - i })
+    return items
 }
 
 fun printData(data: Array<Int>) {
@@ -46,3 +49,19 @@ fun getElapsedTime(started: Long): Long {
 }
 
 fun getRandomNumber(min: Int, max: Int) = ThreadLocalRandom.current().nextInt(min, max)
+
+fun verify(elements: MutableList<Int>, ascending: Boolean = true) {
+    for (x in 0..elements.lastIndex) {
+        if (x > 0) {
+            if (ascending) {
+                if (elements[x] < elements[x - 1]) {
+                    throw Exception("Sorting algorithm does not sort properly!")
+                }
+            } else {
+                if (elements[x] > elements[x - 1]) {
+                    throw Exception("Sorting algorithm does not sort properly!")
+                }
+            }
+        }
+    }
+}

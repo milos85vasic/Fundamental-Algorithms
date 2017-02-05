@@ -20,6 +20,10 @@ fun main(args: Array<String>) {
     InsertionSort<Int>().sort(descending, false)
     val elapsedDescending = getElapsedTime(start)
 
+    // Verify sorting
+    verify(ascending)
+    verify(descending, false)
+
     // Print data
     println("Insert sort:")
     printData(randoms, ascending, descending)
