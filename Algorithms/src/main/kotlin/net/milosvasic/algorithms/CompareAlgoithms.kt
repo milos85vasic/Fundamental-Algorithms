@@ -9,7 +9,7 @@ import java.util.*
 fun main(args: Array<String>) {
     // Define amounts of data to be sorted by algorithm
     val smallData = listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000)
-    val bigData = listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000, 1000 * 1000, 10 * 1000 * 1000, 100 * 1000 * 1000, 1000 * 1000 * 1000)
+    val bigData = listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000, 1000 * 1000, 10 * 1000 * 1000)
 
     // Test data cache
     val cache = HashMap<Int, List<Int>>()
