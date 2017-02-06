@@ -6,32 +6,24 @@ import net.milosvasic.algorithms.sort.MergeSort
 fun main(args: Array<String>) {
 
     // "Prepare data"
-    val ascendingRaw = mutableListOf<Int>()
-    val descendingRaw = mutableListOf<Int>()
-    val ascending = mutableListOf<Int>()
-    val descending = mutableListOf<Int>()
-    ascendingRaw.addAll(getRandomData(1000, 1, 1000))
-    descendingRaw.addAll(ascendingRaw)
-    ascending.addAll(ascendingRaw)
-    descending.addAll(descendingRaw)
+    val ascendingRaw = getRandomData(1000 * 1000, 1, 1000)
+    val descendingRaw = getRandomData(1000 * 1000, 1, 1000)
 
     // "Sort ascending"
     var start = System.currentTimeMillis()
-    MergeSort<Int>().sort(ascending)
+    MergeSort<Int>().sort(ascendingRaw)
     val elapsedAscending = getElapsedTime(start)
 
     // Sort descending
     start = System.currentTimeMillis()
-    MergeSort<Int>().sort(descending, false)
+    MergeSort<Int>().sort(descendingRaw, false)
     val elapsedDescending = getElapsedTime(start)
 
     // Verify sorting
-    verify(ascending)
-    verify(descending, false)
+    verify(ascendingRaw)
+    verify(descendingRaw, false)
 
     // Print data
-    println("Merge sort:")
-    printData(ascendingRaw, ascending, descendingRaw, descending)
     println("Merge sort ascending, elapsed time: [ $elapsedAscending ]")
     println("Merge sort descending, elapsed time: [ $elapsedDescending ]")
 }

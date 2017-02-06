@@ -18,7 +18,7 @@ fun main(args: Array<String>) {
     val algorithms = LinkedHashMap<Sort<Int>, List<Int>>()
     algorithms.put(InsertionSort<Int>(), smallData)
     algorithms.put(SelectionSort<Int>(), smallData)
-    algorithms.put(MergeSort<Int>(), smallData)
+    algorithms.put(MergeSort<Int>(), bigData)
 
     // Test algorithms
     for ((algorithm, tests) in algorithms) {
@@ -26,7 +26,8 @@ fun main(args: Array<String>) {
             // Obtain test data
             var data: List<Int>? = cache[count]
             if (data == null) {
-                data = getOrderedData(count, false)
+                //                data = getOrderedData(count, false)
+                data = getRandomData(count, 10, 50)
                 cache.put(count, data) // Sort descending data to ascending
             }
 

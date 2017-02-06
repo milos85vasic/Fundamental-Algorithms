@@ -2,7 +2,7 @@ package net.milosvasic.algorithms
 
 import java.util.concurrent.ThreadLocalRandom
 
-fun getRandomData(count: Int, min: Int, max: Int): List<Int> {
+fun getRandomData(count: Int, min: Int, max: Int): MutableList<Int> {
     val items = mutableListOf<Int>()
     for (x in 0..count - 1) {
         items.add(getRandomNumber(min, max))
@@ -10,7 +10,7 @@ fun getRandomData(count: Int, min: Int, max: Int): List<Int> {
     return items
 }
 
-fun getOrderedData(count: Int, ascending: Boolean = true): List<Int> {
+fun getOrderedData(count: Int, ascending: Boolean = true): MutableList<Int> {
     val items = mutableListOf<Int>()
     if (ascending) {
         items.addAll(Array(count, { i -> i + 1 }))
@@ -20,7 +20,7 @@ fun getOrderedData(count: Int, ascending: Boolean = true): List<Int> {
     return items
 }
 
-fun printData(data: Array<Int>) {
+fun printData(data: List<Int>) {
     for (x in data) {
         println(x)
     }

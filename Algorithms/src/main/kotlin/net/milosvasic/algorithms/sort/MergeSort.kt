@@ -3,8 +3,12 @@ package net.milosvasic.algorithms.sort
 
 class MergeSort<T : Comparable<T>> : Sort<T> {
 
+    private var tmp = mutableListOf<T>()
+
     override fun sort(elements: MutableList<T>, ascending: Boolean) {
+        tmp.addAll(elements)
         mergeSort(elements, 0, elements.size - 1, ascending)
+        tmp = mutableListOf<T>()
     }
 
     private fun mergeSort(elements: MutableList<T>, start: Int, end: Int, ascending: Boolean) {
@@ -17,70 +21,33 @@ class MergeSort<T : Comparable<T>> : Sort<T> {
     }
 
     fun merge(elements: MutableList<T>, start: Int, middle: Int, end: Int, ascending: Boolean) {
-        val firstSize = (middle + 1) - start
-        val secondSize = (end + 1) - (middle + 1)
-        var i = 0
-        var j = 0
-        var k = 0
-        println("First size: $firstSize")
-        println("Second size: $secondSize")
-        while (i < firstSize && j < secondSize) {
-            if (elements[i + start] <= elements[j + middle + 1]) {
-                println(">>>>>> ${elements[i + start]}")
-                i++
-            } else {
-                println(">>>>>> ${elements[j + middle + 1]}")
-                j++
-            }
-            k++
-        }
-
-//        for(x in start..end){
-//            println("->>> ${elements[x]}")
-//        }
-
-        for (x in start..middle) {
-            println(elements[x])
-        }
-        println("--- --- ---")
-        for (x in middle + 1..end) {
-            println(elements[x])
-        }
-        println("---")
-
-
-
-        /*
-
-                var i = 0
-        var j = 0
-        var k = 0
-        while (i < firstSize && j < secondSize) {
+        var i = start
+        var k = start
+        var j = middle + 1
+        while (i <= middle && j <= end) {
             if (ascending) {
-                if (first[i] <= second[j]) {
-                    elements[k] = first[i]
-                    i++
-                    k++
+                if (elements[i] <= elements[j]) {
+                    tmp[k++] = elements[i++]
                 } else {
-                    elements[k] = second[j]
-                    k++
-                    j++
+                    tmp[k++] = elements[j++]
                 }
             } else {
-                if (first[i] >= second[j]) {
-                    elements[k] = first[i]
-                    i++
-                    k++
+                if (elements[i] >= elements[j]) {
+                    tmp[k++] = elements[i++]
                 } else {
-                    elements[k] = second[j]
-                    k++
-                    j++
+                    tmp[k++] = elements[j++]
                 }
             }
         }
-
-
-         */
+        while (i <= middle) {
+            tmp[k++] = elements[i++]
+        }
+        while (j < end) {
+            tmp[k++] = elements[j++]
+        }
+        for (x in start..end) {
+            elements[x] = tmp[x]
+        }
     }
 
 
