@@ -4,7 +4,6 @@ import net.milosvasic.algorithms.sort.MergeSort
 
 
 fun main(args: Array<String>) {
-
     // "Prepare data"
     val ascendingRaw = getRandomData(1000 * 1000, 1, 1000)
     val descendingRaw = getRandomData(1000 * 1000, 1, 1000)
