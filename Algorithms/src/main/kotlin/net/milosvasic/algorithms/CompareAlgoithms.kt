@@ -36,7 +36,7 @@ fun main(args: Array<String>) {
 
             // Sort ascending
             val start = System.currentTimeMillis()
-            SelectionSort<Int>().sort(ascending)
+            algorithm.sort(ascending)
             val elapsedAscending = getElapsedTime(start)
 
             // Verify sorting
