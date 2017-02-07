@@ -7,8 +7,8 @@ fun main(args: Array<String>) {
 
     // Prepare data
     val totalElements = 10 * 1000 * 1000
-    val randoms = getRandomData(totalElements, 0, 1000)
-    val toFind = getRandomNumber(0, 1000)
+    val randoms = getOrderedData(totalElements, true)
+    val toFind = randoms[3 * (randoms.lastIndex / 4)]
 
     println("We are looking [ $toFind ] in [ ${randoms.size} ] items.")
 
