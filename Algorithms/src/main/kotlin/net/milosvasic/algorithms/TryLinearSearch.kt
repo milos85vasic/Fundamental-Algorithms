@@ -5,25 +5,22 @@ import net.milosvasic.algorithms.search.LinearSearch
 fun main(args: Array<String>) {
     // Prepare data
     val totalElements = 100 * 1000
-    val randoms = getRandomData(totalElements, 0, 1000)
-    val random = getRandomNumber(0, 1000)
+    val randoms = getOrderedData(totalElements)
+    val toFind = totalElements / 2
 
     // Linear search
     val search = LinearSearch<Int>()
-
-    var start = System.currentTimeMillis()
-    val results = search.find(randoms, random)
+    val start = System.currentTimeMillis()
+    val result = search.find(randoms, toFind)
     val elapsedTimeResults = getElapsedTime(start)
 
-    start = System.currentTimeMillis()
-    val result = search.findOne(randoms, random)
-    val elapsedTimeResult = getElapsedTime(start)
+    // Verify
+    if (result != toFind) {
+        throw Exception("Search returned wrong value.")
+    }
 
     // Print data
-    println("Linear search:\n")
     //    printData(randoms)
-    println("Find one element, elements to search: [ $totalElements ]\nvalue to find: [ $random ]\nelapsed time: [ $elapsedTimeResult ]\nresult: [ $result ]")
-    println("----------------------------------------")
-    println("Find all occurrences, elements to search: [ $totalElements ]\nvalue to find: [ $random ]\nelapsed time: [ $elapsedTimeResults ]\nresults (count): [ ${results.size} ]")
+    println("Linear search, [ $totalElements ]\nvalue to find: [ $toFind ]\nelapsed time: [ $elapsedTimeResults ]")
     println("----------------------------------------")
 }
