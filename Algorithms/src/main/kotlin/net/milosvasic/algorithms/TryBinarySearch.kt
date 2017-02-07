@@ -1,19 +1,19 @@
 package net.milosvasic.algorithms
 
-import net.milosvasic.algorithms.search.LinearSearch
+import net.milosvasic.algorithms.search.BinarySearch
 
 fun main(args: Array<String>) {
-    println("Linear search")
+    println("Binary search")
 
     // Prepare data
-    val totalElements = 1000 * 1000
-    val randoms = getOrderedData(totalElements)
-    val toFind = totalElements / 2
+    val totalElements = 10 * 1000 * 1000
+    val randoms = getRandomData(totalElements, 0, 1000)
+    val toFind = getRandomNumber(0, 1000)
 
     println("We are looking [ $toFind ] in [ ${randoms.size} ] items.")
 
     // Linear search
-    val search = LinearSearch<Int>()
+    val search = BinarySearch<Int>()
     val start = System.currentTimeMillis()
     val result = search.find(randoms, toFind)
     val elapsedTimeResults = getElapsedTime(start)

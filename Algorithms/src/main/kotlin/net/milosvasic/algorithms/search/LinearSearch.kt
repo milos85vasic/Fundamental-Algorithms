@@ -1,14 +1,14 @@
 package net.milosvasic.algorithms.search
 
-class LinearSearch<T : Comparable<T>> : Search<T> {
+class LinearSearch<in T : Comparable<T>> : Search<T> {
 
-    override fun find(elements: List<T>, criteria: T): T? {
-        for (item in elements) {
-            if (item == criteria) {
-                return item
+    override fun find(elements: List<T>, criteria: T): Int {
+        for (x in 0..elements.lastIndex) {
+            if (elements[x] == criteria) {
+                return x
             }
         }
-        return null
+        return -1
     }
 
 }
