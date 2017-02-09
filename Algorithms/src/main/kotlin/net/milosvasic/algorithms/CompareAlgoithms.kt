@@ -1,9 +1,6 @@
 package net.milosvasic.algorithms
 
-import net.milosvasic.algorithms.sort.InsertionSort
-import net.milosvasic.algorithms.sort.MergeSort
-import net.milosvasic.algorithms.sort.SelectionSort
-import net.milosvasic.algorithms.sort.Sort
+import net.milosvasic.algorithms.sort.*
 import java.util.*
 
 fun main(args: Array<String>) {
@@ -17,6 +14,7 @@ fun main(args: Array<String>) {
     // Define algorithms to test and data amounts to use in testing
     val algorithms = LinkedHashMap<Sort<Int>, List<Int>>()
     algorithms.put(InsertionSort<Int>(), smallData)
+    algorithms.put(BinaryInsertionSort<Int>(), smallData)
     algorithms.put(SelectionSort<Int>(), smallData)
     algorithms.put(MergeSort<Int>(), bigData)
 
