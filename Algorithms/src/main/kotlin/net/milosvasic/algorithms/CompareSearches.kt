@@ -1,7 +1,7 @@
 package net.milosvasic.algorithms
 
-import net.milosvasic.algorithms.search.BinarySearch
-import net.milosvasic.algorithms.search.LinearSearch
+import net.milosvasic.algorithms.search.efficient.BinarySearch
+import net.milosvasic.algorithms.search.simple.LinearSearch
 import net.milosvasic.algorithms.search.Search
 import java.util.*
 

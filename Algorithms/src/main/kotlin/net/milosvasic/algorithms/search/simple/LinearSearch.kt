@@ -1,4 +1,6 @@
-package net.milosvasic.algorithms.search
+package net.milosvasic.algorithms.search.simple
+
+import net.milosvasic.algorithms.search.Search
 
 class LinearSearch<in T : Comparable<T>> : Search<T> {
 

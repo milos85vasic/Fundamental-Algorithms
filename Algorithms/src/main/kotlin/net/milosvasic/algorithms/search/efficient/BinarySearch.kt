@@ -1,4 +1,6 @@
-package net.milosvasic.algorithms.search
+package net.milosvasic.algorithms.search.efficient
+
+import net.milosvasic.algorithms.search.Search
 
 class BinarySearch<in T : Comparable<T>> : Search<T> {
 

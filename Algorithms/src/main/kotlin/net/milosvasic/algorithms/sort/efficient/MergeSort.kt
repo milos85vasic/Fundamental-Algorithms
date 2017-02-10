@@ -1,4 +1,6 @@
-package net.milosvasic.algorithms.sort
+package net.milosvasic.algorithms.sort.efficient
+
+import net.milosvasic.algorithms.sort.Sort
 
 
 class MergeSort<T : Comparable<T>> : Sort<T> {

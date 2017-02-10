@@ -1,4 +1,6 @@
-package net.milosvasic.algorithms.sort
+package net.milosvasic.algorithms.sort.simple
+
+import net.milosvasic.algorithms.sort.Sort
 
 class InsertionSort<T : Comparable<T>> : Sort<T> {
 

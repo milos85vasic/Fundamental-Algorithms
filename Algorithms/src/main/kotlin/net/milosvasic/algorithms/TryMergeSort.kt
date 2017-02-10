@@ -1,6 +1,6 @@
 package net.milosvasic.algorithms
 
-import net.milosvasic.algorithms.sort.MergeSort
+import net.milosvasic.algorithms.sort.efficient.MergeSort
 
 
 fun main(args: Array<String>) {

@@ -1,6 +1,6 @@
 package net.milosvasic.algorithms
 
-import net.milosvasic.algorithms.search.BinarySearch
+import net.milosvasic.algorithms.search.efficient.BinarySearch
 
 fun main(args: Array<String>) {
     println("Binary search")

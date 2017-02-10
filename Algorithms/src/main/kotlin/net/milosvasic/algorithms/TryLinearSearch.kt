@@ -1,6 +1,6 @@
 package net.milosvasic.algorithms
 
-import net.milosvasic.algorithms.search.LinearSearch
+import net.milosvasic.algorithms.search.simple.LinearSearch
 
 fun main(args: Array<String>) {
     println("Linear search")

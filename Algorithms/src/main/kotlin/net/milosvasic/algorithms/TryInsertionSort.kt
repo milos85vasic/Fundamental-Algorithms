@@ -1,6 +1,6 @@
 package net.milosvasic.algorithms
 
-import net.milosvasic.algorithms.sort.InsertionSort
+import net.milosvasic.algorithms.sort.simple.InsertionSort
 
 fun main(args: Array<String>) {
     // Prepare data

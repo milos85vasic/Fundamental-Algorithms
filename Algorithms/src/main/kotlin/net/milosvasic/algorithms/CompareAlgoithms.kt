@@ -1,6 +1,9 @@
 package net.milosvasic.algorithms
 
 import net.milosvasic.algorithms.sort.*
+import net.milosvasic.algorithms.sort.efficient.MergeSort
+import net.milosvasic.algorithms.sort.simple.InsertionSort
+import net.milosvasic.algorithms.sort.simple.SelectionSort
 import java.util.*
 
 fun main(args: Array<String>) {

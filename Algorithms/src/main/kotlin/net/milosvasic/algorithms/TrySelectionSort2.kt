@@ -1,6 +1,6 @@
 package net.milosvasic.algorithms
 
-import net.milosvasic.algorithms.sort.SelectionSort
+import net.milosvasic.algorithms.sort.simple.SelectionSort
 
 
 fun main(args: Array<String>) {
