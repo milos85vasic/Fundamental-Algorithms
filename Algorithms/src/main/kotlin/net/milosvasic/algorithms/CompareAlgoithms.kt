@@ -29,9 +29,8 @@ fun main(args: Array<String>) {
             // Obtain test data
             var data: List<Int>? = cache[count]
             if (data == null) {
-                //                data = getOrderedData(count, false)
                 data = getRandomData(count, 10, 50)
-                cache.put(count, data) // Sort descending data to ascending
+                cache.put(count, data)
             }
 
             val ascending = mutableListOf<Int>()
