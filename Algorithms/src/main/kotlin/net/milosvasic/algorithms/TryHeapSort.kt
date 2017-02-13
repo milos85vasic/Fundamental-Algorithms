@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
     verify(descending, false)
 
     // Print data
-    println("Heap sort:")
+    println("Heap sort ${randoms.size} items:")
     //    printData(randoms, ascending, descending)
     println("Heap sort ascending, elapsed time: [ $elapsedAscending ]")
     println("Heap sort descending, elapsed time: [ $elapsedDescending ]")
