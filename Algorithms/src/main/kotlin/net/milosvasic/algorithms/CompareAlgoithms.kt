@@ -1,6 +1,7 @@
 package net.milosvasic.algorithms
 
-import net.milosvasic.algorithms.sort.*
+import net.milosvasic.algorithms.sort.Sort
+import net.milosvasic.algorithms.sort.efficient.HeapSort
 import net.milosvasic.algorithms.sort.efficient.MergeSort
 import net.milosvasic.algorithms.sort.simple.InsertionSort
 import net.milosvasic.algorithms.sort.simple.SelectionSort
@@ -10,6 +11,7 @@ fun main(args: Array<String>) {
     // Define amounts of data to be sorted by algorithm
     val smallData = listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000)
     val bigData = listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000, 1000 * 1000, 10 * 1000 * 1000)
+    val hugeData = listOf(1, 10, 100, 1000, 10 * 1000, 100 * 1000, 1000 * 1000, 10 * 1000 * 1000, 100 * 1000 * 1000)
 
     // Test data cache
     val cache = HashMap<Int, List<Int>>()
@@ -19,6 +21,7 @@ fun main(args: Array<String>) {
     algorithms.put(InsertionSort<Int>(), smallData)
     algorithms.put(SelectionSort<Int>(), smallData)
     algorithms.put(MergeSort<Int>(), bigData)
+    algorithms.put(HeapSort<Int>(), hugeData)
 
     // Test algorithms
     for ((algorithm, tests) in algorithms) {
