@@ -8,13 +8,29 @@ class HeapSort<T : Comparable<T>> : Sort<T> {
 
     override fun sort(elements: MutableList<T>, ascending: Boolean) {
         total = elements.size - 1
-        for (i in total / 2 downTo 0) {
-            heapify(elements, i)
+        for (index in total / 2 downTo 0) {
+            heapify(elements, index)
         }
-        for (i in total downTo 1) {
-            swap(elements, 0, i)
+        for (index in total downTo 1) {
+            swap(elements, 0, index)
             total--
             heapify(elements, 0)
+        }
+    }
+
+    private fun heapify(elements: MutableList<T>, index: Int) {
+        var max = index
+        val left = index * 2
+        val right = left + 1
+        if (left <= total && elements[left] > elements[max]) {
+            max = left
+        }
+        if (right <= total && elements[right] > elements[max]) {
+            max = right
+        }
+        if (max != index) {
+            swap(elements, index, max)
+            heapify(elements, max)
         }
     }
 
@@ -22,19 +38,6 @@ class HeapSort<T : Comparable<T>> : Sort<T> {
         val tmp = elements[a]
         elements[a] = elements[b]
         elements[b] = tmp
-    }
-
-    private fun heapify(elements: MutableList<T>, i: Int) {
-        val lft = i * 2
-        val rgt = lft + 1
-        var grt = i
-
-        if (lft <= total && elements[lft] > elements[grt]) grt = lft
-        if (rgt <= total && elements[rgt] > elements[grt]) grt = rgt
-        if (grt != i) {
-            swap(elements, i, grt)
-            heapify(elements, grt)
-        }
     }
 
 }
